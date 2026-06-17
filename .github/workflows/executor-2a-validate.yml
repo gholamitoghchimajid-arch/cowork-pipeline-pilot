@@ -6,16 +6,21 @@ on:
         description: "Instruction issue number in this pilot repo to validate"
         required: true
         type: string
+
 permissions:
   contents: read
   issues: read
+
 jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with: { python-version: "3.12" }
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
       - name: Validate instruction + approval marker (zero-write)
         env:
           GITHUB_TOKEN: ${{ github.token }}
