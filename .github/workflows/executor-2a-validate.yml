@@ -1,0 +1,24 @@
+name: executor-2a-validate
+on:
+  workflow_dispatch:
+    inputs:
+      issue_number:
+        description: "Instruction issue number in this pilot repo to validate"
+        required: true
+        type: string
+permissions:
+  contents: read
+  issues: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Validate instruction + approval marker (zero-write)
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          ISSUE_NUMBER: ${{ inputs.issue_number }}
+        run: python executor/validate_2a.py
