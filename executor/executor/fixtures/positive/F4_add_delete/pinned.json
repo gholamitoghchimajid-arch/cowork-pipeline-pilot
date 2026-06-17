@@ -1,8 +1,0 @@
-{
-"base_commit": "fc388cc0b995d327b487b6277cb52cc6fe061d98",
-"content_sha256": [
-"5891b5b522d5df086d0ff0b110fbd9d21bb4fc7163af34d08286a2e846f6be03"
-],
-"expected_tree_sha": "af90a66196a69f73f5be6a2a86fd6a98c0fa10b3",
-"patch_sha256": "8f5cfcbc596384ef7dd7cae04bb231a222cfcf8b82b56fb72b9382b16a6e057e"
-}
