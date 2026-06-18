@@ -1,7 +1,6 @@
 schema: 2b-patch/1.0
 base_commit: d040d190cf7ef79a4cf5f63c43a7e92babe1f35a
 operations:
-
-* op: delete
+  - op: delete
   path: drop.txt
   expected_tree_sha: cc1bdfa1894337da8480f5a64a42dbde30c80912

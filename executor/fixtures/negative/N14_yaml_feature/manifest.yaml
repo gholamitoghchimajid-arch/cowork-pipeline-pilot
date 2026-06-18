@@ -1,8 +1,7 @@
 schema: 2b-patch/1.0
 base_commit: *alias
 operations:
-
-* op: add
+  - op: add
   path: x.txt
   content_sha256: 0000000000000000000000000000000000000000000000000000000000000000
   mode: "100644"

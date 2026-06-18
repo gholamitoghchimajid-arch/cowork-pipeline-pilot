@@ -1,8 +1,7 @@
 schema: 2b-patch/1.0
 base_commit: d3af6894c87481af55d8b554437636cb4460d3e0
 operations:
-
-* op: add
+  - op: add
   path: pilot/noop-2b.txt
   content_sha256: e22807ae090559c5bcce03c9af5162ced450edbeb0b01c550715cff319b7f432
   mode: "100644"

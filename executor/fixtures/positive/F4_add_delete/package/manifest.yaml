@@ -1,11 +1,10 @@
 schema: 2b-patch/1.0
 base_commit: fc388cc0b995d327b487b6277cb52cc6fe061d98
 operations:
-
-* op: add
+  - op: add
   path: pilot/new.txt
   content_sha256: 5891b5b522d5df086d0ff0b110fbd9d21bb4fc7163af34d08286a2e846f6be03
   mode: "100644"
-* op: delete
+  - op: delete
   path: old.txt
   expected_tree_sha: af90a66196a69f73f5be6a2a86fd6a98c0fa10b3
