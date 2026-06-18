@@ -1,0 +1,8 @@
+schema: 2b-patch/1.0
+base_commit: 232eeffc16c68bfe33d9f0ddaf59fe40ca4b4777
+operations:
+  - op: replace
+    path: data.txt
+    content_sha256: 7aa7a5359173d05b63cfd682e3c38487f3cb4f7f1d60659fe59fab1505977d4c
+    mode: "100644"
+expected_tree_sha: 18f242590c35aff90efd6219ebf946594c8e40ba
