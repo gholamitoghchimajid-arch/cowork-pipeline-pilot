@@ -1,0 +1,34 @@
+name: executor-2b-execute
+# ONE-CLICK manual run. No inputs: the operator only presses "Run workflow".
+# executor/execute_2b.py discovers the single unconsumed cowork-patch bus item from
+# this repo's issues/comments (issues: read, GET-only), applies it through the local
+# 2b core in an isolated worktree, pushes only an exec/2b/* branch, and opens a
+# DRAFT pull request. Least privilege: contents: write (push the exec branch) and
+# pull-requests: write (open the draft) and issues: read (read the bus). It has NO
+# issues: write and NO administration / ruleset / branch-rule / settings / secrets /
+# environment scope.
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: write
+  pull-requests: write
+  issues: read
+jobs:
+  execute:
+    runs-on: ubuntu-latest
+    # Hard-gate the actor: only the allowed operator may run this workflow.
+    if: ${{ github.actor == 'gholamitoghchimajid-arch' }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with: { python-version: "3.12" }
+      - name: Execute one cowork-patch bus item (discover -> apply -> exec/2b/* -> draft PR)
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_WORKSPACE: ${{ github.workspace }}
+          COWORK_REMOTE: origin
+        run: python executor/execute_2b.py
